@@ -1,0 +1,16 @@
+{
+    "name": "hexlet/code",
+    "autoload": {
+        "psr-4": {
+            "Hexlet\\Code\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Daria-Kop"
+        }
+    ],
+    "require": {},
+    "description": "1",
+    "license": "MIT"
+}
