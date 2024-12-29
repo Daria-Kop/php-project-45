@@ -14,5 +14,8 @@
         "wp-cli/php-cli-tools": "^0.12.1"
     },
     "description": "1",
-    "license": "MIT"
+    "license": "MIT",
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.11"
+    }
 }

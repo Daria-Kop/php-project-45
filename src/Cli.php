@@ -25,4 +25,3 @@ class User
         return $this->children;
     }
 }
-?>
