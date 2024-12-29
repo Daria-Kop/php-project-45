@@ -1,0 +1,53 @@
+##############################
+   #     Brain Games Demo       #
+   ##############################
+
+   Step 1: Install Dependencies
+   ------------------------------
+   $ make install
+   Installing required packages...
+   All dependencies installed successfully!
+
+   Step 2: Run the Game
+   ------------------------------
+   $ make brain-even
+   Welcome to the Brain Games!
+   May I have your name? Alice
+   Hello, Alice!
+   Answer "yes" if the number is even, otherwise answer "no".
+
+   Question: 4
+   Your answer: yes
+   Correct!
+
+   Question: 7
+   Your answer: no
+   Correct!
+
+   Question: 10
+   Your answer: yes
+   Correct!
+
+   Congratulations, Alice!
+   
+   ------------------------------
+   Outcome of Winning Scenario
+   ------------------------------
+   You have answered all questions correctly! 
+   You are a champion in Brain Games!
+
+   ------------------------------
+   Outcome of Losing Scenario
+   ------------------------------
+   $ make brain-even
+   Welcome to the Brain Games!
+   May I have your name? Bob
+   Hello, Bob!
+   Answer "yes" if the number is even, otherwise answer "no".
+
+   Question: 5
+   Your answer: yes
+   'yes' is wrong answer ;(. Correct answer was 'no'.
+   Let's try again, Bob!
+   
+   ##############################
