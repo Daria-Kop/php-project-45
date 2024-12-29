@@ -10,7 +10,9 @@
             "name": "Daria-Kop"
         }
     ],
-    "require": {},
+    "require": {
+        "wp-cli/php-cli-tools": "^0.12.1"
+    },
     "description": "1",
     "license": "MIT"
 }
