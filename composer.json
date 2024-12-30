@@ -21,6 +21,7 @@
     "bin": [
         "path/to/your/executable1",
         "path/to/your/executable2",
-        "bin/brain-calc"  
+        "bin/brain-calc"
+	"bin/brain-gcd"
     }
 }

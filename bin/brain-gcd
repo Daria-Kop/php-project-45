@@ -1,0 +1,55 @@
+<?php
+session_start();
+
+// Функция для вычисления НОД
+function gcd($a, $b) {
+    while ($b) {
+        $temp = $b;
+        $b = $a % $b;
+        $a = $temp;
+    }
+    return $a;
+}
+
+// Инициализация игры
+if (!isset($_SESSION['name'])) {
+    echo "Welcome to the Brain Games!\n";
+    echo "May I have your name? ";
+    $handle = fopen("php://stdin", "r");
+    $name = trim(fgets($handle));
+    $_SESSION['name'] = $name;
+    echo "Hello, $name!\n";
+    echo "Find the greatest common divisor of given numbers.\n";
+}
+
+// Основной цикл игры
+$correct = true;
+
+while ($correct) {
+    // Генерация двух случайных чисел
+    $a = rand(1, 100); // Случайное число от 1 до 100
+    $b = rand(1, 100); // Случайное число от 1 до 100
+
+    // Вычисляем НОД
+    $result = gcd($a, $b);
+
+    // Запрос ответа у пользователя
+    echo "Question: $a $b\n";
+    echo "Your answer: ";
+    $user_answer = trim(fgets($handle));
+
+    // Проверка ответа
+    if ($user_answer == $result) {
+        echo "Correct!\n";
+    } else {
+        echo "'$user_answer' is wrong answer ;(. Correct answer was '$result'.\n";
+        echo "Let's try again, {$_SESSION['name']}!\n";
+        $correct = false; // Завершение игры
+    }
+}
+
+if ($correct) {
+    echo "Congratulations, {$_SESSION['name']}!\n";
+}
+
+?>

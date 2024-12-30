@@ -51,3 +51,92 @@
    Let's try again, Bob!
    
    ##############################
+# Brain GCD Game
+
+## Описание
+
+Игра "Найти наибольший общий делитель (НОД)" позволяет пользователю находить НОД для двух случайных чисел. Игра продолжает задавать вопросы до тех пор, пока игрок не даст неверный ответ.
+
+## Установка
+
+1. Убедитесь, что у вас установлен PHP. Вы можете проверить это, запустив команду:
+
+bash
+   php -v
+   
+
+markdown
+
+2. Скачайте или клонируйте репозиторий:
+
+bash
+   git clone 
+   cd <имя-репозитория>
+   
+
+markdown
+
+3. Создайте файл `brain-gcd.php` и вставьте в него код игры.
+
+## Запуск игры
+
+Запустите игру с помощью следующей команды:
+
+bash
+php brain-gcd.php
+
+shell
+
+## Пример игры
+
+### Пример 1: Правильные ответы
+
+plaintext
+Welcome to the Brain Games!
+May I have your name? Sam
+Hello, Sam!
+Find the greatest common divisor of given numbers.
+Question: 25 50
+Your answer: 25
+Correct!
+Question: 100 52
+Your answer: 4
+Correct!
+Question: 3 9
+Your answer: 3
+Correct!
+Congratulations, Sam!
+
+shell
+
+### Пример 2: Неверный ответ
+
+plaintext
+Welcome to the Brain Games!
+May I have your name? Alex
+Hello, Alex!
+Find the greatest common divisor of given numbers.
+Question: 25 50
+Your answer: 1
+'1' is wrong answer ;(. Correct answer was '25'.
+Let's try again, Alex!
+
+shell
+
+### Пример 3: Смешанные ответы
+
+plaintext
+Welcome to the Brain Games!
+May I have your name? Taylor
+Hello, Taylor!
+Find the greatest common divisor of given numbers.
+Question: 30 45
+Your answer: 15
+Correct!
+Question: 56 98
+Your answer: 14
+Correct!
+Question: 14 49
+Your answer: 3
+'3' is wrong answer ;(. Correct answer was '7'.
+Let's try again, Taylor!

@@ -9,3 +9,5 @@ To install the necessary dependencies, run:
 To run the game, use the following command:
 For a demonstration of the game, please check the following link to the ASCII demo:
 [Brain Games Demo](game_demo.txt)
+#[brain-gcd](game_demo.txt)
+
