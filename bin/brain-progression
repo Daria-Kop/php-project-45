@@ -1,0 +1,65 @@
+<?php
+session_start();
+
+// Функция для генерации арифметической прогрессии
+function generateProgression($length = 10) {
+    $start = rand(1, 20); // Стартовое число
+    $step = rand(1, 5); // Шаг прогрессии
+    $progression = [];
+
+    for ($i = 0; $i < $length; $i++) {
+        $progression[] = $start + $i * $step;
+    }
+
+    return $progression;
+}
+
+// Функция для создания прогрессии с пропущенным числом
+function createQuestion() {
+    $length = rand(5, 10); // Генерируем случайную длину прогрессии от 5 до 10
+    $progression = generateProgression($length);
+    
+    // Случайная позиция для пропущенного числа
+    $hiddenIndex = rand(0, $length - 1);
+    $hiddenNumber = $progression[$hiddenIndex];
+
+    // Заменяем пропущенное число двумя точками
+    $progression[$hiddenIndex] = '..';
+
+    return [$progression, $hiddenNumber];
+}
+
+// Инициализация игры
+if (!isset($_SESSION['name'])) {
+    echo "Welcome to the Brain Games!\n";
+    echo "May I have your name? ";
+    $handle = fopen("php://stdin", "r");
+    $name = trim(fgets($handle));
+    $_SESSION['name'] = $name;
+    echo "Hello, $name!\n";
+    echo "What number is missing in the progression?\n";
+}
+
+// Основной цикл игры
+$correct = true;
+
+while ($correct) {
+    list($progression, $hiddenNumber) = createQuestion();
+    echo "Question: " . implode(" ", $progression) . "\n";
+    
+    echo "Your answer: ";
+    $user_answer = trim(fgets($handle));
+
+    // Проверка ответа
+    if ($user_answer == $hiddenNumber) {
+        echo "Correct!\n";
+    } else {
+        echo "'$user_answer' is wrong answer ;(. Correct answer was '$hiddenNumber'.\n";
+        echo "Let's try again, {$_SESSION['name']}!\n";
+        $correct = false; // Завершение игры
+    }
+}
+
+if ($correct) {
+    echo "Congratulations, {$_SESSION['name']}!\n";
+}
