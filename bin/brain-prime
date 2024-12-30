@@ -1,0 +1,51 @@
+<?php
+session_start();
+
+// Функция для проверки, является ли число простым
+function isPrime($number) {
+    if ($number <= 1) {
+        return false;
+    }
+    for ($i = 2; $i <= sqrt($number); $i++) {
+        if ($number % $i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// Инициализация игры
+if (!isset($_SESSION['name'])) {
+    echo "Welcome to the Brain Games!\n";
+    echo "May I have your name? ";
+    $handle = fopen("php://stdin", "r");
+    $name = trim(fgets($handle));
+    $_SESSION['name'] = $name;
+    echo "Hello, $name!\n";
+    echo "Answer \"yes\" if given number is prime. Otherwise answer \"no\".\n";
+}
+
+// Основной цикл игры
+$correct = true;
+
+while ($correct) {
+    $number = rand(1, 100); // Генерируем случайное число от 1 до 100
+    $correctAnswer = isPrime($number) ? "yes" : "no";
+
+    echo "Question: $number\n";
+    echo "Your answer: ";
+    $user_answer = trim(fgets($handle));
+
+    // Проверка ответа
+    if ($user_answer === $correctAnswer) {
+        echo "Correct!\n";
+    } else {
+        echo "'$user_answer' is wrong answer ;(. Correct answer was '$correctAnswer'.\n";
+        echo "Let's try again, {$_SESSION['name']}!\n";
+        $correct = false; // Завершение игры
+    }
+}
+
+if ($correct) {
+    echo "Congratulations, {$_SESSION['name']}!\n";
+}

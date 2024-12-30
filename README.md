@@ -11,4 +11,4 @@ For a demonstration of the game, please check the following link to the ASCII de
 [Brain Games Demo](game_demo.txt)
 [brain-gcd](game_demo.txt)
 [brain-progression](game_demo.txt)
-
+[brain-prime](game_demo.txt)
