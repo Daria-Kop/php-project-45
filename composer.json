@@ -17,5 +17,10 @@
     "license": "MIT",
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.11"
+    },
+    "bin": [
+        "path/to/your/executable1",
+        "path/to/your/executable2",
+        "bin/brain-calc"  
     }
 }
