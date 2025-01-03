@@ -1,27 +1,13 @@
 <?php
 
-namespace Php\Package;
+namespace BrainGames\Cli;
 
-use Illuminate\Support\Collection;
+use function cli\line;
+use function cli\prompt;
 
-class User
+function greeting()
 {
-    private string $name;
-    private Collection $children;
-
-    public function __construct(string $name, array $children = [])
-    {
-        $this->name = $name;
-        $this->children = collect($children);
-    }
-
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    public function getChildren(): Collection
-    {
-        return $this->children;
-    }
+    line('Welcome to the Brain Games!');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
 }
