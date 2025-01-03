@@ -2,28 +2,18 @@
 [![Actions Status](https://github.com/Daria-Kop/php-project-45/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Daria-Kop/php-project-45/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d8bec79216bbaee8e13b/maintainability)](https://codeclimate.com/github/Daria-Kop/php-project-45/maintainability)
 
-## Setup
+## Число четное или нет?
+[![asciicast](https://asciinema.org/a/Qjv9BEJM3Pj164frZSleXj8T8.svg)](https://asciinema.org/a/Qjv9BEJM3Pj164frZSleXj8T8)
 
-```bash
-git clone https://github.com/hexlet-boilerplates/php-package.git
-cd php-package
-make install
+## Игра: "Калькулятор"
+[![asciicast](https://asciinema.org/a/V5U77dwEsedZoUFCyqqG2XpfQ.svg)](https://asciinema.org/a/V5U77dwEsedZoUFCyqqG2XpfQ)
 
-## Run tests
+## Игра: Наименьший Общий Делитель
+[![asciicast](https://asciinema.org/a/gPZcwexapaCV57QyRKqDr8Olg.svg)](https://asciinema.org/a/gPZcwexapaCV57QyRKqDr8Olg)
 
-```sh
-make test
-```
+## Игра "Арифметическая прогрессия"
+[![asciicast](https://asciinema.org/a/QTBsn5IgtrO1C2YvjflnF5oBv.svg)](https://asciinema.org/a/QTBsn5IgtrO1C2YvjflnF5oBv)
 
-## Test Coverage
+## Игра "Простое ли число?"
+[![asciicast](https://asciinema.org/a/lCxheshTC94qBVWNw0sdtlE8z.svg)](https://asciinema.org/a/lCxheshTC94qBVWNw0sdtlE8z)
 
-* see `phpunit.xml`
-* See [codeclimate documentation](https://docs.codeclimate.com/docs/configuring-test-coverage)
-* add `CC_TEST_REPORTER_ID` to workflow as SECRETS ENV VARIABLE (for safety)
-
-[![Hexlet Ltd. logo](https://raw.githubusercontent.com/Hexlet/assets/master/images/hexlet_logo128.png)](https://hexlet.io/?utm_source=github&utm_medium=link&utm_campaign=php-package)
-
-This repository is created and maintained by the team and the community of Hexlet, an educational project. [Read more about Hexlet](https://hexlet.io/?utm_source=github&utm_medium=link&utm_campaign=php-package).
-
-
-See most active contributors on [hexlet-friends](https://friends.hexlet.io/).
