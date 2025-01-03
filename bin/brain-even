@@ -1,34 +1,12 @@
 #!/usr/bin/env php
-   <?php
+<?php
+$autoloadPath1 = __DIR__ . '/../../../autoload.php';
+$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
+if (file_exists($autoloadPath1)) {
+    require_once $autoloadPath1;
+} else {
+    require_once $autoloadPath2;
+}
 
-   function isEven($number) {
-       return $number % 2 === 0;
-   }
-
-   echo "Welcome to the Brain Games!\n";
-   echo "May I have your name? ";
-   $name = trim(fgets(STDIN));
-   echo "Hello, $name!\n";
-   echo "Answer 'yes' if the number is even, otherwise answer 'no'.\n";
-
-   $rounds = 3; // Количество вопросов
-   for ($i = 0; $i < $rounds; $i++) {
-       $question = rand(1, 100); // Генерация случайного числа
-       $correctAnswer = isEven($question) ? 'yes' : 'no';
-
-       echo "Question: $question\n";
-       echo "Your answer: ";
-       $userAnswer = trim(fgets(STDIN));
-
-       // Проверка ответа
-       if ($userAnswer !== $correctAnswer) {
-           echo "'$userAnswer' is wrong answer ;(. Correct answer was '$correctAnswer'.\n";
-           echo "Let's try again, $name!\n";
-           exit; // Завершение игры при неверном ответе
-       } else {
-           echo "Correct!\n";
-       }
-   }
-
-   echo "Congratulations, $name!\n";
-
+use function BrainGames\Games\calc;
+calc();
