@@ -1,14 +1,22 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Daria-Kop/php-project-45/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Daria-Kop/php-project-45/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d8bec79216bbaee8e13b/maintainability)](https://codeclimate.com/github/Daria-Kop/php-project-45/maintainability)
-# Brain Games
-Welcome to the Brain Games project! This project includes a game that tests your ability to determine whether a number is even or odd.
-## Installation
-To install the necessary dependencies, run:
-## Running the Game
-To run the game, use the following command:
-For a demonstration of the game, please check the following link to the ASCII demo:
-[Brain Games Demo](game_demo.txt)
-[brain-gcd](game_demo.txt)
-[brain-progression](game_demo.txt)
-[brain-prime](game_demo.txt)
+### Brain-even game process
+[![asciicast](https://asciinema.org/a/mnzkWVP1bi0dDD1ve7LH8glYp.png)](https://asciinema.org/a/mnzkWVP1bi0dDD1ve7LH8glYp)
+### Brain-calc game process (win)
+[![asciicast](https://asciinema.org/a/btcsdfZ2fR6sZXf2a4xHbih3i.png)](https://asciinema.org/a/btcsdfZ2fR6sZXf2a4xHbih3i)
+### Brain-calc game process (lose)
+[![asciicast](https://asciinema.org/a/4E38vrffMQICWdWj7RtO7wEC4.png)](https://asciinema.org/a/4E38vrffMQICWdWj7RtO7wEC4)
+### Brain-gcd game process (win)
+[![asciicast](https://asciinema.org/a/ZnfnbH4ZOcWDBNOcSMHiekbUz.png)](https://asciinema.org/a/ZnfnbH4ZOcWDBNOcSMHiekbUz)
+### Brain-gcd game process (lose)
+[![asciicast](https://asciinema.org/a/XYCOtkBWFh1dObVBt0Cym6WWN.png)](https://asciinema.org/a/XYCOtkBWFh1dObVBt0Cym6WWN)
+### Brain-progression game process (win)
+[![asciicast](https://asciinema.org/a/MBqWA5PBDhtzGqs7VyOp3RFeV.png)](https://asciinema.org/a/MBqWA5PBDhtzGqs7VyOp3RFeV)
+### Brain-progression game process (lose)
+[![asciicast](https://asciinema.org/a/qwaovqJFfvSlAbP2KkMm0cv7l.png)](https://asciinema.org/a/qwaovqJFfvSlAbP2KkMm0cv7l)
+### Brain-prime game process (win)
+[![asciicast](https://asciinema.org/a/iH5lvmcdKvNhgUBG56IBt64qJ.png)](https://asciinema.org/a/iH5lvmcdKvNhgUBG56IBt64qJ)
+### Brain-prime game process (lose)
+[![asciicast](https://asciinema.org/a/tg0cwNld2ZEzVhhSLeeYdDngl.png)](https://asciinema.org/a/tg0cwNld2ZEzVhhSLeeYdDngl)
+
