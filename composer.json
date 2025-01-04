@@ -1,6 +1,13 @@
 {
     "name": "hexlet/code",
     "autoload": {
+        "files": ["src/Cli.php",
+            "src/Engine.php",
+            "src/Games/even.php",
+            "src/Games/calc.php",
+            "src/Games/gcd.php",
+            "src/Games/progression.php",
+            "src/Games/prime.php"],
         "psr-4": {
             "Hexlet\\Code\\": "src/"
         }
@@ -24,6 +31,6 @@
              "bin/brain-gcd",
 	     "bin/brain-progression",
 	     "bin/brain-prime"
-    }
+    ]
 }
 
