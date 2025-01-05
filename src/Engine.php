@@ -1,6 +1,6 @@
 <?php
 
-namespace Project1\Engine;
+namespace BrainGames\Engine;
 
 function welcome()
 {
