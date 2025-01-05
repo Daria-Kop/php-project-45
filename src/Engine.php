@@ -1,38 +1,34 @@
 <?php
 
-namespace BrainGames\Engine;
+namespace BrainGames;
 
 use function cli\line;
 use function cli\prompt;
 
-function greeting()
+const ITERATIONS_COUNT = 3;
+
+function runEngine($getRightAnswerForRound, $question)
 {
-    line('Welcome to the Brain Games!');
-    global $name;
+    line('Welcome to the Brain Game!');
+    line($question);
     $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-}
+    line('Hello, %s!', $name);
 
-function task(string $text)
-{
-    line($text);
-}
-
-function gameProcess(string $gameName)
-{
-    global $name;
-    $result = '';
-    for ($rightAnswerCount = 1; $rightAnswerCount < 4; $rightAnswerCount++) {
-        if (is_callable('BrainGames\Games\\' . $gameName)) {
-            $result = call_user_func('BrainGames\Games\\' . $gameName);
-        }
-        if ($result === "Mistake") {
-            line('Let\'s try again, %s!', $name);
-            break;
-        }
-        line('Correct!');
-        if ($rightAnswerCount === 3) {
-            line('Congratulations, %s!', $name);
+    for ($i = 0; $i < ITERATIONS_COUNT; $i++) {
+        ['roundQuestion' => $roundQuestion, 'rightAnswer' => $rightAnswer] = $getRightAnswerForRound();
+        
+        line("Question: {$roundQuestion}");
+        $answerUser = prompt('Your answer');
+        
+        if ($answerUser == $rightAnswer) {
+            line('Correct!');
+        } else {
+            line("{$answerUser}  is wrong answer ;(. Correct answer was {$rightAnswer}");
+            line("Let's try again, {$name}!");
+            return;
         }
     }
+    
+    line("Congratulations, {$name}!");
+    return;
 }
