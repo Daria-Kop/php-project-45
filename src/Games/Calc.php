@@ -1,35 +1,40 @@
 <?php
 
-namespace BrainGames\Games\Calc;
+namespace App\Games\Calc;
 
-use function BrainGames\OneWayComm\greetAndGetUserName;
-use function BrainGames\OneWayComm\showResultAndBye;
-use function BrainGames\Engine\playAndGetResult;
+use function App\Engine\runGame;
 
-function gameCalc()
+use const App\Engine\MIN_RANDOM_NUMBER;
+use const App\Engine\MAX_RANDOM_NUMBER;
+
+function calculate(int $num1, int $num2, string $operator)
 {
-    $name = greetAndGetUserName();
-    $description = 'What is the result of the expression?';
-
-    $gameFunction = function () {
-        [$expression, $rightAnswer] = gameFunction();
-        return [$expression, $rightAnswer];
-    };
-
-    $result = playAndGetResult($description, $gameFunction);
-    showResultAndBye($name, $result);
+    switch ($operator) {
+        case '+':
+            return $num1 + $num2;
+        case '-':
+            return $num1 - $num2;
+        case '*':
+            return $num1 * $num2;
+        default:
+            break;
+    }
 }
 
-function gameFunction()
+function runCalc()
 {
-    $min = 0;
-    $max = 3;
-    $one = random_int($min, $max);
-    $two = random_int($min, $max);
-    $operationArray = array("+","-","*");
-    $rand = random_int(0, count($operationArray) - 1);
-    $operation = $operationArray[$rand];
-    $expression = "{$one} {$operation} {$two}";
-    $rightAnswer = eval("return $expression;");
-    return [$expression,$rightAnswer];
+    $rules = 'What is the result of the expression?';
+    $getQuestion = function () {
+        $operators = ['+', '-', '*'];
+        $randOne = mt_rand(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        $randTwo = mt_rand(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        $key = array_rand($operators);
+        $randOperator = $operators[$key];
+        $question = "$randOne $randOperator $randTwo";
+        $correctAnswer = (string) calculate($randOne, $randTwo, $randOperator);
+
+        return [$question, $correctAnswer];
+    };
+
+    runGame($rules, $getQuestion);
 }

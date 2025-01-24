@@ -1,28 +1,36 @@
 <?php
 
-namespace BrainGames\Engine;
+namespace App\Engine;
 
 use function cli\line;
 use function cli\prompt;
 
-function playAndGetResult(string $description, callable $gameFunction): bool
-{
-    $inGame = true;
-    $maxRounds = 3;
-    $numberRound = 0;
+const COUNT_QUESTIONS = 3;
+const MIN_RANDOM_NUMBER = 1;
+const MAX_RANDOM_NUMBER = 15;
 
-    line($description);
-    while ($inGame && $numberRound < $maxRounds) {
-        [$expression,$rightAnswer] = $gameFunction();
-        line("Question: {$expression}");
-        $answer = prompt("Your answer");
-        if ($rightAnswer == $answer) {
-            line("Correct!");
-            $numberRound += 1;
+function runGame(string $rules, callable $getQuestion): void
+{
+    line('Welcome to the Brain Games!');
+    $userName = prompt('May I have your name?');
+    line("Hello, {$userName}!");
+    line($rules);
+
+    for ($i = 1; $i <= COUNT_QUESTIONS; $i++) {
+        [$question, $correctAnswer] = $getQuestion();
+        line("Question: {$question}");
+        $answer = mb_strtolower(prompt('Your answer'));
+
+        if ($correctAnswer === $answer) {
+            line('Correct!');
         } else {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.");
-            $inGame = false;
+            $isWrong = "'%s' is wrong answer ;(. Correct answer was '%s'.\n";
+            $tryAgain = "Let's try again, %s!\n";
+            echo sprintf($isWrong, $answer, $correctAnswer);
+            echo sprintf($tryAgain, $userName);
+            return;
         }
     }
-    return $inGame;
+
+    line("Congratulations, {$userName}!");
 }

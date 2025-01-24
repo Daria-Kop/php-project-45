@@ -1,42 +1,34 @@
 <?php
 
-namespace BrainGames\Games\Gcd;
+namespace App\Games\Gcd;
 
-use function BrainGames\OneWayComm\greetAndGetUserName;
-use function BrainGames\OneWayComm\showResultAndBye;
-use function BrainGames\Engine\playAndGetResult;
+use function App\Engine\runGame;
 
-function gameGcd()
+use const App\Engine\MIN_RANDOM_NUMBER;
+use const App\Engine\MAX_RANDOM_NUMBER;
+
+function getGcd(int $num1, int $num2): int
 {
-    $name = greetAndGetUserName();
-    $description = 'Find the greatest common divisor of given numbers.';
+    while ($num2 !== 0) {
+        $temp = $num1 % $num2;
+        $num1 = $num2;
+        $num2 = $temp;
+    }
 
-    $gameFunction = function () {
-        [$expression, $rightAnswer] = gameFunction();
-        return [$expression, $rightAnswer];
-    };
-
-    $result = playAndGetResult($description, $gameFunction);
-    showResultAndBye($name, $result);
+    return $num1;
 }
 
-function gameFunction()
+function runGcd()
 {
-    $min = 1;
-    $max = 100;
-    $oneRandom = random_int($min, $max);
-    $twoRandom = random_int($min, $max);
-    $saveArray = [$oneRandom, $twoRandom];
+    $rules = 'Find the greatest common divisor of given numbers.';
+    $getQuestion = function () {
+        $randOne = mt_rand(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        $randTwo = mt_rand(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        $question = "$randOne $randTwo";
+        $correctAnswer = (string) getGcd($randOne, $randTwo);
 
-    while (min($oneRandom, $twoRandom) > 0) {
-        if ($oneRandom >= $twoRandom) {
-            $oneRandom = $oneRandom % $twoRandom;
-        } else {
-            $twoRandom = $twoRandom % $oneRandom;
-        }
-    }
-    $expression = "{$saveArray[0]} {$saveArray[1]}";
-    $rightAnswer = max($oneRandom, $twoRandom);
+        return [$question, $correctAnswer];
+    };
 
-    return [$expression,$rightAnswer];
+    runGame($rules, $getQuestion);
 }

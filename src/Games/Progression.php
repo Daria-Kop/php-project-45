@@ -1,36 +1,40 @@
 <?php
 
-namespace BrainGames\Games\Progression;
+namespace App\Games\Progression;
 
-use function BrainGames\OneWayComm\greetAndGetUserName;
-use function BrainGames\OneWayComm\showResultAndBye;
-use function BrainGames\Engine\playAndGetResult;
+use function App\Engine\runGame;
 
-function gameProgression()
+use const App\Engine\MIN_RANDOM_NUMBER;
+use const App\Engine\MAX_RANDOM_NUMBER;
+
+const MIN_PROGRESSION_STEP = 2;
+const MAX_PROGRESSION_STEP = 10;
+const PROGRESSION_SIZE = 10;
+const PROGRESSION_END = 150;
+const ARRAY_KEY = 0;
+
+function getProgression(): array
 {
-    $name = greetAndGetUserName();
-    $description = 'What number is missing in the progression?';
+    $progressionStart = mt_rand(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+    $progressionStep = mt_rand(MIN_PROGRESSION_STEP, MAX_PROGRESSION_STEP);
+    $progressionFull = range($progressionStart, PROGRESSION_END, $progressionStep);
+    $progression = array_slice($progressionFull, ARRAY_KEY, PROGRESSION_SIZE);
 
-    $gameFunction = function () {
-        [$expression, $rightAnswer] = gameFunction();
-        return [$expression, $rightAnswer];
-    };
-
-    $result = playAndGetResult($description, $gameFunction);
-    showResultAndBye($name, $result);
+    return $progression;
 }
 
-function gameFunction()
+function runProgression()
 {
-    $progressionStart = rand(1, 100);
-    $progressionMultiplicator = rand(-10, 10);
-    $emptyPosition = rand(0, 9);
-    $progressionList = [$progressionStart];
-    foreach (range(1, 9) as $i) {
-        $progressionList[$i] = $progressionList[$i - 1] + $progressionMultiplicator;
-    }
-    $correctAnswer = (string) $progressionList[$emptyPosition];
-    $progressionList[$emptyPosition] = "..";
-    $question = implode(' ', $progressionList);
-    return [$question, $correctAnswer];
+    $rules = 'What number is missing in the progression?';
+    $getQuestion = function () {
+        $array = getProgression();
+        $randIndex = array_rand($array);
+        $correctAnswer = (string) $array[$randIndex];
+        $array[$randIndex] = '..';
+        $question = implode(' ', $array);
+
+        return [$question, $correctAnswer];
+    };
+
+    runGame($rules, $getQuestion);
 }
