@@ -38,4 +38,3 @@ function calculate(int $num1, int $num2, string $operator)
             break;
     }
 }
-

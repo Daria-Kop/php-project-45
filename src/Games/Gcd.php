@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Games\Gcd;
+
 use function BrainGames\Engine\runGame;
 
 use const BrainGames\Engine\MIN_RANDOM_NUMBER;
