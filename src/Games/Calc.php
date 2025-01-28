@@ -6,10 +6,9 @@ use function BrainGames\Engine\runGame;
 use const BrainGames\Engine\MIN_RANDOM_NUMBER;
 use const BrainGames\Engine\MAX_RANDOM_NUMBER;
 
-const RULES = 'What is the result of the expression?';
-
-function runCalc(): void
+function runCalc()
 {
+    $rules = 'What is the result of the expression?';
     $getQuestion = function () {
         $operators = ['+', '-', '*'];
         $randOne = mt_rand(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
@@ -22,10 +21,10 @@ function runCalc(): void
         return [$question, $correctAnswer];
     };
 
-    runGame(RULES, $getQuestion);
+    runGame($rules, $getQuestion);
 }
 
-function calculate(int $num1, int $num2, string $operator): int
+function calculate(int $num1, int $num2, string $operator)
 {
     switch ($operator) {
         case '+':
@@ -35,6 +34,6 @@ function calculate(int $num1, int $num2, string $operator): int
         case '*':
             return $num1 * $num2;
         default:
-            return 0;
+            break;
     }
 }
