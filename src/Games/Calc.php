@@ -3,6 +3,7 @@
 namespace App\Games\Calc;
 
 use function BrainGames\Engine\runGame;
+
 use const BrainGames\Engine\MIN_RANDOM_NUMBER;
 use const BrainGames\Engine\MAX_RANDOM_NUMBER;
 
