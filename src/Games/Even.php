@@ -7,7 +7,7 @@ use function BrainGames\Engine\runGame;
 use const BrainGames\Engine\MIN_RANDOM_NUMBER;
 use const BrainGames\Engine\MAX_RANDOM_NUMBER;
 
-unction runEven()
+function runEven()
 {
     $rules = 'Answer "yes" if the number is even, otherwise answer "no".';
     $getQuestion = function () {
