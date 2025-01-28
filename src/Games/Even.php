@@ -2,15 +2,10 @@
 
 namespace App\Games\Even;
 
-use function App\Engine\runGame;
+use function BrainGames\Engine\runGame;
 
-use const App\Engine\MIN_RANDOM_NUMBER;
-use const App\Engine\MAX_RANDOM_NUMBER;
-
-function isEven(int $number): bool
-{
-    return $number % 2 === 0;
-}
+use const BrainGames\Engine\MIN_RANDOM_NUMBER;
+use const BrainGames\Engine\MAX_RANDOM_NUMBER;
 
 function runEven()
 {
@@ -23,4 +18,9 @@ function runEven()
     };
 
     runGame($rules, $getQuestion);
+}
+
+function isEven(int $number): bool
+{
+    return $number % 2 === 0;
 }

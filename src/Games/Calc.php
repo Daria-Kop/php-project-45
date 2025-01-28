@@ -2,24 +2,10 @@
 
 namespace App\Games\Calc;
 
-use function App\Engine\runGame;
+use function BrainGames\Engine\runGame;
 
-use const App\Engine\MIN_RANDOM_NUMBER;
-use const App\Engine\MAX_RANDOM_NUMBER;
-
-function calculate(int $num1, int $num2, string $operator)
-{
-    switch ($operator) {
-        case '+':
-            return $num1 + $num2;
-        case '-':
-            return $num1 - $num2;
-        case '*':
-            return $num1 * $num2;
-        default:
-            break;
-    }
-}
+use const BrainGames\Engine\MIN_RANDOM_NUMBER;
+use const BrainGames\Engine\MAX_RANDOM_NUMBER;
 
 function runCalc()
 {
@@ -38,3 +24,18 @@ function runCalc()
 
     runGame($rules, $getQuestion);
 }
+
+function calculate(int $num1, int $num2, string $operator)
+{
+    switch ($operator) {
+        case '+':
+            return $num1 + $num2;
+        case '-':
+            return $num1 - $num2;
+        case '*':
+            return $num1 * $num2;
+        default:
+            break;
+    }
+}
+

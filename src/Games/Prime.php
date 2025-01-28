@@ -2,10 +2,23 @@
 
 namespace App\Games\Prime;
 
-use function App\Engine\runGame;
+use function BrainGames\Engine\runGame;
 
-use const App\Engine\MIN_RANDOM_NUMBER;
-use const App\Engine\MAX_RANDOM_NUMBER;
+use const BrainGames\Engine\MIN_RANDOM_NUMBER;
+use const BrainGames\Engine\MAX_RANDOM_NUMBER;
+
+function runPrime()
+{
+    $rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+    $getQuestion = function () {
+        $question = mt_rand(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        $correctAnswer = isPrime($question) ? 'yes' : 'no';
+
+        return [$question, $correctAnswer];
+    };
+
+    runGame($rules, $getQuestion);
+}
 
 function isPrime(int $number): bool
 {
@@ -20,17 +33,4 @@ function isPrime(int $number): bool
     }
 
     return true;
-}
-
-function runPrime()
-{
-    $rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-    $getQuestion = function () {
-        $question = mt_rand(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-        $correctAnswer = isPrime($question) ? 'yes' : 'no';
-
-        return [$question, $correctAnswer];
-    };
-
-    runGame($rules, $getQuestion);
 }
