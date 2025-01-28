@@ -3,13 +3,13 @@
 namespace App\Games\Calc;
 
 use function BrainGames\Engine\runGame;
-
 use const BrainGames\Engine\MIN_RANDOM_NUMBER;
 use const BrainGames\Engine\MAX_RANDOM_NUMBER;
 
-function runCalc()
+const RULES = 'What is the result of the expression?';
+
+function runCalc(): void
 {
-    $rules = 'What is the result of the expression?';
     $getQuestion = function () {
         $operators = ['+', '-', '*'];
         $randOne = mt_rand(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
@@ -22,10 +22,10 @@ function runCalc()
         return [$question, $correctAnswer];
     };
 
-    runGame($rules, $getQuestion);
+    runGame(RULES, $getQuestion);
 }
 
-function calculate(int $num1, int $num2, string $operator)
+function calculate(int $num1, int $num2, string $operator): int
 {
     switch ($operator) {
         case '+':
@@ -35,6 +35,6 @@ function calculate(int $num1, int $num2, string $operator)
         case '*':
             return $num1 * $num2;
         default:
-            break;
+            return 0;
     }
 }

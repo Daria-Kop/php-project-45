@@ -1,5 +1,3 @@
-<?php
-
 namespace BrainGames\Engine;
 
 use function cli\line;
@@ -23,13 +21,14 @@ function runGame(string $rules, callable $getQuestion): void
 
         if ($correctAnswer === $answer) {
             line('Correct!');
-        } else {
-            $isWrong = "'%s' is wrong answer ;(. Correct answer was '%s'.\n";
-            $tryAgain = "Let's try again, %s!\n";
-            echo sprintf($isWrong, $answer, $correctAnswer);
-            echo sprintf($tryAgain, $userName);
-            return;
+            continue;
         }
+
+        $isWrong = "'%s' is wrong answer ;(. Correct answer was '%s'.\n";
+        $tryAgain = "Let's try again, %s!\n";
+        line(sprintf($isWrong, $answer, $correctAnswer));
+        line(sprintf($tryAgain, $userName));
+        return;
     }
 
     line("Congratulations, {$userName}!");
