@@ -7,10 +7,9 @@ use function BrainGames\Engine\runGame;
 use const BrainGames\Engine\MIN_RANDOM_NUMBER;
 use const BrainGames\Engine\MAX_RANDOM_NUMBER;
 
-const RULES = 'Find the greatest common divisor of given numbers.';
-
-function runGcd(): void
+function runGcd()
 {
+    $rules = 'Find the greatest common divisor of given numbers.';
     $getQuestion = function () {
         $randOne = mt_rand(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         $randTwo = mt_rand(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
@@ -20,7 +19,7 @@ function runGcd(): void
         return [$question, $correctAnswer];
     };
 
-    runGame(RULES, $getQuestion);
+    runGame($rules, $getQuestion);
 }
 
 function getGcd(int $num1, int $num2): int

@@ -13,10 +13,9 @@ const PROGRESSION_SIZE = 10;
 const PROGRESSION_END = 150;
 const ARRAY_KEY = 0;
 
-const RULES = 'What number is missing in the progression?';
-
-function runProgression(): void
+function runProgression()
 {
+    $rules = 'What number is missing in the progression?';
     $getQuestion = function () {
         $array = getProgression();
         $randIndex = array_rand($array);
@@ -27,7 +26,7 @@ function runProgression(): void
         return [$question, $correctAnswer];
     };
 
-    runGame(RULES, $getQuestion);
+    runGame($rules, $getQuestion);
 }
 
 function getProgression(): array

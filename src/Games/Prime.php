@@ -7,10 +7,9 @@ use function BrainGames\Engine\runGame;
 use const BrainGames\Engine\MIN_RANDOM_NUMBER;
 use const BrainGames\Engine\MAX_RANDOM_NUMBER;
 
-const RULES = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-
-function runPrime(): void
+function runPrime()
 {
+    $rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     $getQuestion = function () {
         $question = mt_rand(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         $correctAnswer = isPrime($question) ? 'yes' : 'no';
@@ -18,7 +17,7 @@ function runPrime(): void
         return [$question, $correctAnswer];
     };
 
-    runGame(RULES, $getQuestion);
+    runGame($rules, $getQuestion);
 }
 
 function isPrime(int $number): bool
