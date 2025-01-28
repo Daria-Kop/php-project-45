@@ -21,6 +21,7 @@ function runGame(string $rules, callable $getQuestion): void
         line("Question: {$question}");
         $answer = mb_strtolower(prompt('Your answer'));
 
+
         if ($correctAnswer === $answer) {
             line('Correct!');
             continue;
